@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookRegistry</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark fixed-top left-aligned">
+    <ul class="navbar-nav">
+      <% if current_user.present? %>
+        <li class="nav-item">
+          <div data-letters="<%= current_user.email.first.upcase rescue ''%>" style="color: white;"> <%= current_user.email %></div>
+        </li>
+      <% end %>
+      <li class="nav-item">
+        <%= link_to "Books", books_path, class: "btn btn-primary" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Categories", categories_path, class: "btn btn-primary" %>
+      </li>
+      <li class="nav-item">
+        <% if current_user.present? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+  <div class="container" style="padding-top: 60px;">
+    <% unless flash.empty? %>
+        <%= format_flash_message(flash).html_safe %>
+    <% end %>
+    <%= yield %>
+  </div>
+  </body>
+</html>

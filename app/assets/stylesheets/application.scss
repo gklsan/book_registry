@@ -1,0 +1,31 @@
+/*
+ *= require jquery-tablesorter/theme.grey
+ */
+
+
+#book_publish_status {
+  margin: 0 0 10px 20px;
+}
+
+.pager {top: auto !important; position: unset !important; padding: 8px 0 0 60px;}
+.pager img {min-width: 18px; padding: 0 10px;}
+
+[data-letters]:before {
+  content:attr(data-letters);
+  display:inline-block;
+  font-size:1em;
+  width:2.5em;
+  height:2.5em;
+  line-height:2.5em;
+  text-align:center;
+  border-radius:100%;
+  background: #FFFFFF;
+  vertical-align:middle;
+  //margin-right:1em;
+  color: #007bff;
+  font-weight: bolder;
+}
+
+.publish_action{
+  min-width: 98px;
+}

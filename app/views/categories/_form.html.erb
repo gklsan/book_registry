@@ -1,0 +1,16 @@
+<%= form_with(model: category, remote: true) do |form| %>
+  <div class="field form-group">
+    <%= form.label :name%>
+    <%= form.text_field :name, id: :category_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :category_description, class: "form-control", required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+    <%= link_to 'Back', categories_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

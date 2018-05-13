@@ -1,0 +1,28 @@
+<h1><%= @book.name.titlecase %> </h1>
+<p>
+  <strong>Isbn:</strong>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @book.author_name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @book.category_name %>
+</p>
+
+<p>
+  <strong>Publish status:</strong>
+  <%= @book.is_published? %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book), class: "btn btn-primary" %>
+<%= link_to 'Back', books_path, class: "btn btn-primary" %>

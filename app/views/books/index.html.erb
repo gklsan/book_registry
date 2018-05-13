@@ -1,0 +1,70 @@
+<h1>Books</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Isbn</th>
+      <th>Price</th>
+      <th>User</th>
+      <th>Category</th>
+      <th class="filter-select filter-exact" data-placeholder="All">Publish status</th>
+      <th class="sorter-false filter-false"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.name %></td>
+        <td><%= book.isbn %></td>
+        <td><%= book.price %></td>
+        <td><%= book.author_name %></td>
+        <td><%= book.category_name %></td>
+        <td><%= book.is_published? %></td>
+        <td class="btn-group" style="display: inline-block;">
+          <%= link_to "#{publish_button_title(book)}", book_publish_path(book), method: :post, class: "btn btn-primary publish_action" %>
+          <%= link_to 'Show', book, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_book_path(book), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!-- pager -->
+<div class="row">
+  <div  >
+    <%= link_to 'New Book', new_book_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="pager">
+    <img src="https://mottie.github.io/tablesorter/addons/pager/icons/first.png" class="first" title="Goto first"/>
+    <img src="https://mottie.github.io/tablesorter/addons/pager/icons/prev.png" class="prev" title="Goto previous"/>
+    <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+    <img src="https://mottie.github.io/tablesorter/addons/pager/icons/next.png" class="next" title="Goto next" />
+    <img src="https://mottie.github.io/tablesorter/addons/pager/icons/last.png" class="last" title="Goto last"/>
+    <select class="pagesize" title="Select page size">
+        <option selected="selected" value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+    </select>
+  </div>
+</div>
+<br>
+<br>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    tableSorter("table", "books");
+  });
+</script>
+
+
+<style>
+
+
+</style>

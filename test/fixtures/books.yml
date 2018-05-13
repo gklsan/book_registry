@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  isbn: MyString
+  price: 9.99
+  user: one
+  category: one
+  publish_status: false
+
+two:
+  name: MyString
+  isbn: MyString
+  price: 9.99
+  user: two
+  category: two
+  publish_status: false
